@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header">           
             Layanan Teknologi
-            <a href="{{ route('layanantekno.create') }}" style="float: right" class="btn btn-primary btn-sm">
+            <a href="{{ route('produktekno.create') }}" style="float: right" class="btn btn-primary btn-sm">
                 <i class="fas fa-plus"></i> Tambah
             </a>
         </div>
@@ -43,13 +43,13 @@
                             <td>{{ $item->alamat_kantor }}</td>
                             <td>{{ $item->website }}</td> --}}
                             <td width="120">
-                                <a href="{{ route('layanantekno.show', $item->id) }}" class="btn btn-success btn-sm">
+                                <a href="{{ route('produktekno.show', $item->id) }}" class="btn btn-success btn-sm">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{ route('layanantekno.edit', $item->id) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ route('produktekno.edit', $item->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form class="d-inline" action="{{ route('layanantekno.delete', $item->id) }}" method="post">
+                                <form class="d-inline" action="{{ route('produktekno.delete', $item->id) }}" method="post">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm">

@@ -44,7 +44,7 @@ class ProdukteknoController extends Controller
         $unit_kerja = Unitkerja::all();
         $bidang = Bidang::all();
         $tkt = Tkt::all();
-        return view('admin.db_tekno.layanan_tekno.create', compact('kedeputian', 'unit_kerja', 'tkt', 'bidang'));
+        return view('admin.db_tekno.produk_tekno.create', compact('kedeputian', 'unit_kerja', 'tkt', 'bidang'));
     }
 
     /**
