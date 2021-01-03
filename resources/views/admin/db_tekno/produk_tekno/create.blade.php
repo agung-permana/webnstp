@@ -6,7 +6,7 @@
             Tambah Data
         </div>
         <div class="card-body">
-            <form action="{{ route('layanantekno.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('produktekno.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label>Nama Produk</label>
@@ -72,7 +72,7 @@
 
                 <div class="form-group">
                     <label>Skala Pemesanan</label>
-                    <input type="text" name="skala_pemasaran" class="form-control @error('skala_pemasaran') is-invalid @enderror" value="{{ old('skala_pemasaran') }}">
+                    <input type="number" name="skala_pemasaran" class="form-control @error('skala_pemasaran') is-invalid @enderror" value="{{ old('skala_pemasaran') }}">
                     @error('skala_pemasaran')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -87,7 +87,6 @@
                 </div>
 
                 
-
                 <div class="form-group">
                     <label>Status Paten</label>
                     <input type="text" name="status_paten" class="form-control @error('status_paten') is-invalid @enderror" value="{{ old('status_paten') }}">
@@ -129,31 +128,57 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Tahun Pembuatan</label>
-                    <input type="text" name="tahun_pembuatan" class="form-control @error('tahun_pembuatan') is-invalid @enderror" value="{{ old('tahun_pembuatan') }}">
-                    @error('tahun_pembuatan')
+                    <label>TKT</label>
+                    <select name="tkt_id" class="form-control">
+                        <option value="" hidden>-- Pilih TKT --</option>
+                        @foreach ($tkt as $item)
+                        <option value="{{ $item->id }}">{{ $item->nama_tkt }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Keunggulan Produk</label>
+                    <input type="text" name="keunggulan_produk" class="form-control @error('keunggulan_produk') is-invalid @enderror" value="{{ old('keunggulan_produk') }}">
+                    @error('keunggulan_produk')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="form-group">
-                    <label>Jenis Akreditasi Sertifikasi</label>
-                    <input type="text" name="jenis_akreditasi_sertifikasi" class="form-control @error('jenis_akreditasi_sertifikasi') is-invalid @enderror" value="{{ old('jenis_akreditasi_sertifikasi') }}">
-                    @error('jenis_akreditasi_sertifikasi')
+                    <label>Kompetitor Produk</label>
+                    <input type="text" name="kompetitor_produk" class="form-control @error('kompetitor_produk') is-invalid @enderror" value="{{ old('kompetitor_produk') }}">
+                    @error('kompetitor_produk')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="form-group">
-                    <label>Lembaga Penerbit Sertifikasi</label>
-                    <input type="text" name="lembaga_penerbit_sertifikasi" class="form-control @error('lembaga_penerbit_sertifikasi') is-invalid @enderror" value="{{ old('lembaga_penerbit_sertifikasi') }}">
-                    @error('lembaga_penerbit_sertifikasi')
+                    <label>Sumber Pembiayaan</label>
+                    <input type="text" name="sumber_pembiayaan" class="form-control @error('sumber_pembiayaan') is-invalid @enderror" value="{{ old('sumber_pembiayaan') }}">
+                    @error('sumber_pembiayaan')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label>Tujuan Produksi Produk</label>
+                    <input type="text" name="tujuan_produksi_produk" class="form-control @error('tujuan_produksi_produk') is-invalid @enderror" value="{{ old('tujuan_produksi_produk') }}">
+                    @error('tujuan_produksi_produk')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label>Keterangan</label>
+                    <input type="text" name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" value="{{ old('keterangan') }}">
+                    @error('keterangan')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{ route('kompetensi') }}" class="btn btn-danger">Batal</a>
+                <a href="{{ route('produktekno') }}" class="btn btn-danger">Batal</a>
             </form>
         </div>
     </div>
