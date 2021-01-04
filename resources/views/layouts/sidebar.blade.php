@@ -44,7 +44,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kategoriproduk"
         aria-expanded="true" aria-controls="kategoriproduk">
-        <i class="fas fa-fw fa-tasks"></i>
+        <i class="fas fa-fw fa-flask"></i>
         <span>Produk</span>
     </a>
     <div id="kategoriproduk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -81,7 +81,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#bisnis"
         aria-expanded="true" aria-controls="bisnis">
-        <i class="fas fa-fw fa-vr-cardboard"></i>
+        <i class="fas fa-fw fa-briefcase"></i>
         <span>Bisnis dan Inovasi</span>
     </a>
     <div id="bisnis" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -91,7 +91,6 @@
             <a class="collapse-item" href="{{ route('laytek-kategori') }}">Laytek Kategori</a>
             <a class="collapse-item" href="{{ route('laytek') }}">Layanan Teknis</a>
             <a class="collapse-item" href="{{ route('hotspot') }}">Inkubasi Teknologi</a>
-            <a class="collapse-item" href="{{ route('objek') }}">Object</a>
         </div>
     </div>
 </li>
