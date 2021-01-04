@@ -69,7 +69,8 @@ class LaytekController extends Controller
 
     public function show($slug)
     {
-        return view('laytek');
+        $show = Laytek::where('slug', $slug)->first();
+        return view('laytek_detail', compact('show'));
     }
 
     /**

@@ -20,12 +20,12 @@
                 @foreach ($data as $item)
                 <div class="col-md-3">
                     <div class="card mt-4">
-                        <a href="#">
+                        <a href="{{ route('laytek.show', $item->slug) }}">
                             <div class="bi-pic text-center">
                                 <img src="{{ asset('images/laytek/'.$item->thumb) }}" alt="">
                             </div>
                             <div class="card-body">
-                                <h6 class="card-text"><strong>{{ $item->judul }}</strong></h6>
+                                <h6 class="card-text"><strong>{{ $item->kategori->nama }}</strong></h6>
                             </div>
                         </a>
                     </div>
