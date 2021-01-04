@@ -25,11 +25,15 @@
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->level }}</td>
                             <td width="180">
-                                <a href="{{ route('user.edit', $item->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                <a href="{{ route('user.edit', $item->id) }}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-edit"></i>
+                                </a>
                                 <form class="d-inline" onsubmit="return confirm('Yakin mau hapus data ini?')" action="{{ route('user.hapus', $item->id) }}" method="post">
                                     @method('delete')
                                     @csrf
-                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
                                 </form>
                             </td>
                         </tr>

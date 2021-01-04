@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class BeritaController extends Controller
 {
+
     public function berita()
     {
         $berita = Berita::all();

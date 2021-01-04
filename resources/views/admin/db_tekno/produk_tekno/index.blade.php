@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="card-body">
-            <table id="myTable" class="table table-bordered table-hover table-responsive">
+            <table id="myTable" class="table table-bordered table-hover table-striped table-responsive">
                 <thead>
                     <tr>
                         <th>No.</th>

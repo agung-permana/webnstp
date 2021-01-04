@@ -42,6 +42,18 @@
                             Admin
                         </label>
                     </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="level" value="supervisor"
+                            @if ($user->level == 'supervisor')
+                                checked
+                            @endif
+                        >
+                        <label class="form-check-label">
+                            Supervisor
+                        </label>
+                    </div>
+
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="level" value="operator"
                             @if ($user->level == 'operator')
