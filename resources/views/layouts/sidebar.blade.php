@@ -1,3 +1,4 @@
+
 <li class="nav-item">
     <a class="nav-link" href="{{ route('dashboard') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -95,6 +96,7 @@
     </div>
 </li>
 
+@if (Auth::check() && Auth::user()->level == 'supervisor')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#db_tekno"
         aria-expanded="true" aria-controls="db_tekno">
@@ -118,6 +120,32 @@
         </div>
     </div>
 </li>
+@elseif (Auth::check() && Auth::user()->level == 'admin')
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#db_tekno"
+        aria-expanded="true" aria-controls="db_tekno">
+        <i class="fas fa-fw fa-database"></i>
+        <span>Database Teknologi</span>
+    </a>
+    <div id="db_tekno" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('bidang') }}">Bidang</a>
+            <a class="collapse-item" href="{{ route('kedeputian') }}">kedeputian</a>
+            <a class="collapse-item" href="{{ route('pemasaran') }}">Pemasaran</a>
+            <a class="collapse-item" href="{{ route('skala_dampak_ekonomi') }}">Skala Dampak Ekonomi</a>
+            <a class="collapse-item" href="{{ route('skala_dampak_teknologi') }}">Skala Dampak Teknologi</a>
+            <a class="collapse-item" href="{{ route('tkt') }}">Tkt</a>
+            <a class="collapse-item" href="{{ route('unit_kerja') }}">Unit Kerja</a>
+            <a class="collapse-item" href="{{ route('kompetensi') }}">Kompetensi</a>
+            <a class="collapse-item" href="{{ route('layanantekno') }}">Layanan Teknologi</a>
+            <a class="collapse-item" href="{{ route('produktekno') }}">Produk Teknologi</a>
+
+
+        </div>
+    </div>
+</li>
+    
+@endif
 
 {{-- <li class="nav-item">
     <a class="nav-link" href="{{ route('program') }}">
@@ -125,11 +153,12 @@
         <span>Pengaturan</span>
     </a>
 </li> --}}
-
+@if (Auth::check() && Auth::user()->level == 'admin')
 <li class="nav-item">
     <a class="nav-link" href="{{ route('user') }}">
         <i class="fas fa-fw fa-user-cog"></i>
         <span>Manajemen User</span>
     </a>
 </li>
+@endif
 

@@ -229,7 +229,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('laytek', 'LaytekController@index')->name('laytek');
     Route::get('laytek/create', 'LaytekController@create')->name('laytek.create');
     Route::post('laytek', 'LaytekController@store')->name('laytek.store');
-    Route::get('laytek/{id}', 'LaytekController@show')->name('laytek.show');
     Route::get('laytek/edit/{id}', 'LaytekController@edit')->name('laytek.edit');
     Route::put('laytek/{id}', 'LaytekController@update')->name('laytek.update');
     Route::delete('laytek/{id}', 'LaytekController@destroy')->name('laytek.delete');
@@ -242,6 +241,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::delete('/user/delete/{id}', 'UserController@delete')->name('user.hapus');
 
 });
+Route::get('layanan-teknis', 'LaytekController@laytek');
+Route::get('layanan-teknis/{slug}', 'LaytekController@show')->name('laytek.show');
+
+
+
 Route::get('/berita-nstp', 'BeritaController@berita')->name('berita-nstp');
 Route::get('/berita-nstp/{slug}', 'BeritaController@berita_detail')->name('berita-detail');
 

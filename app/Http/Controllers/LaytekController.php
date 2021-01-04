@@ -5,10 +5,16 @@ namespace App\Http\Controllers;
 use App\Laytek;
 use App\Laytekkategori;
 use File;
+use Str;
 use Illuminate\Http\Request;
 
 class LaytekController extends Controller
 {
+    public function laytek()
+    {
+        $data = Laytek::all();
+        return view('laytek', compact('data'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -43,22 +49,27 @@ class LaytekController extends Controller
         //     'nama' => 'required',
         // ]);
 
-        $tentang = New Laytek;
-        $tentang->laytek_id = $request->laytek_id;
-        $tentang->judul = $request->judul;
+        $laytek = New Laytek;
+        $laytek->laytek_id = $request->laytek_id;
+        $laytek->judul = $request->judul;
+        $laytek->slug = Str::slug($request->judul);
+        $laytek->desc = $request->desc;
 
-        $thumb = $request->file('thumb');
-            if ($thumb) {
-                $nama_foto = $thumb->getClientOriginalName();
-                $thumbnail->move('images/laytek', $nama_foto);
-                $thumbnail = 'images/laytek/'.$nama_foto;
-            }else{
-                $thumb = '';
-            }
-        $tentang->save();
-        return $request;
-        // alert()->success('Berhasil','Data Berhasil Disimpan');
-        // return redirect()->route('laytek');
+        $thumb = $request->thumb;
+        $namafile = time().'.'.$thumb->getClientOriginalExtension();
+        $thumb->move('images/laytek', $namafile);
+
+        $laytek->thumb = $namafile;
+        
+        $laytek->save();
+        // return $request;
+        alert()->success('Berhasil','Data Berhasil Disimpan');
+        return redirect()->route('laytek');
+    }
+
+    public function show($slug)
+    {
+        return view('laytek');
     }
 
     /**
