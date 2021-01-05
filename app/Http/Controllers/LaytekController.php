@@ -58,8 +58,38 @@ class LaytekController extends Controller
         $thumb = $request->thumb;
         $namafile = time().'.'.$thumb->getClientOriginalExtension();
         $thumb->move('images/laytek', $namafile);
-
         $laytek->thumb = $namafile;
+
+        $gambar1 = $request->gambar1;
+        $namafile = time().'.'.$gambar1->getClientOriginalExtension();
+        $gambar1->move('images/laytek', $namafile);
+        $laytek->gambar1 = $namafile;
+
+        $gambar2 = $request->gambar2;
+        $namafile = time().'.'.$gambar2->getClientOriginalExtension();
+        $gambar2->move('images/laytek', $namafile);
+        $laytek->gambar2 = $namafile;
+
+        $gambar3 = $request->gambar3;
+        $namafile = time().'.'.$gambar3->getClientOriginalExtension();
+        $gambar3->move('images/laytek', $namafile);
+        $laytek->gambar3 = $namafile;
+
+        $gambar4 = $request->gambar4;
+        $namafile = time().'.'.$gambar4->getClientOriginalExtension();
+        $gambar4->move('images/laytek', $namafile);
+        $laytek->gambar4 = $namafile;
+
+        $file = $request->file('gambar5');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/laytek', $nama_foto);
+                $gambar5 = 'images/laytek/'.$nama_foto;
+            }else{
+                $gambar5 = '';
+            }
+        $laytek->gambar5 = $gambar5;
+
         
         $laytek->save();
         // return $request;
@@ -81,8 +111,9 @@ class LaytekController extends Controller
      */
     public function edit($id)
     {
-        $data = Laytekkategori::find($id);
-        return view('admin.laytek.edit', compact('data'));
+        $kategori = Laytekkategori::all();
+        $data = Laytek::find($id);
+        return view('admin.laytek.edit', compact('data', 'kategori'));
     }
 
     /**
@@ -94,16 +125,29 @@ class LaytekController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama' => 'required',
-        ]);
+        $laytek = Laytek::find($id);
+        if($request->has('thumb')){
+            $laytek->laytek_id = $request->laytek_id;
+            $laytek->judul = $request->judul;
+            $laytek->slug = Str::slug($request->judul);
+            $laytek->desc = $request->desc;
 
-        $tentang = Laytekkategori::find($id);
-        $tentang->nama = $request->nama;
-        $tentang->update();
+            $thumb = $request->thumb;
+            $namafile = time().'.'.$thumb->getClientOriginalExtension();
+            $thumb->move('images/laytek', $namafile);
+
+            $laytek->thumb = $namafile;
+        }else{
+            $laytek->laytek_id = $request->laytek_id;
+            $laytek->judul = $request->judul;
+            $laytek->slug = Str::slug($request->judul);
+            $laytek->desc = $request->desc;
+        }
+
+        $laytek->update();
         // return $request;
         alert()->success('Berhasil','Data Berhasil Diedit');
-        return redirect()->route('laytek-kategori');
+        return redirect()->route('laytek');
     }
 
     /**

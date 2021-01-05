@@ -26,11 +26,22 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->kategori->nama }}</td>
+                            <td>{{ $item->judul }}</td>
+                            <td><img width="100" src="{{ asset('images/laytek/'.$item->thumb) }}" alt=""></td>
+                            <td>{{ $item->desc }}</td>
                             <td>
-                                <a href="{{ route('laytek-kategori.edit', $item->id) }}" class="btn btn-primary btn-sm">
+                                <img width="100" src="{{ asset('images/laytek/'.$item->gambar1) }}" alt="">
+                                <img width="100" src="{{ asset('images/laytek/'.$item->gambar2) }}" alt="">
+                                <img width="100" src="{{ asset('images/laytek/'.$item->gambar3) }}" alt="">
+                                <img width="100" src="{{ asset('images/laytek/'.$item->gambar4) }}" alt="">
+                                <img width="100" src="{{ asset('images/laytek/'.$item->gambar5) }}" alt="">
+
+                            </td>
+                            <td>
+                                <a href="{{ route('laytek.edit', $item->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form class="d-inline" action="{{ route('laytek-kategori.delete', $item->id) }}" method="post">
+                                <form class="d-inline" action="{{ route('laytek.delete', $item->id) }}" method="post">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm">

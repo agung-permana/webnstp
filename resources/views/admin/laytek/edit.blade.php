@@ -3,17 +3,22 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            Tambah Data
+            Edit Data
         </div>
         <div class="card-body">
-            <form action="{{ route('laytek.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('laytek.update', $data->id) }}" method="post" enctype="multipart/form-data">
+                @method('PUT')
                 @csrf
                 <div class="form-group">
                     <label>Nama Kategori</label>
                     <select name="laytek_id" class="form-control">
                         <option value="" hidden>-- Pilih Kategori --</option>
                         @foreach ($kategori as $item)
-                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                            <option value="{{ $item->id }}"
+                                @if ($item->id == $data->laytek_id)
+                                selected
+                                @endif
+                            >{{ $item->nama }}</option>
                         @endforeach
                     </select>
                     @error('scene_id')
@@ -22,15 +27,22 @@
                 </div>
                 <div class="form-group">
                     <label>Judul</label>
-                    <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul') }}">
+                    <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul', $data->judul) }}">
                     @error('judul')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="form-group">
+                    <label>Gambar</label>
+                    <br><img src="{{ asset('images/laytek/'. $data->thumb) }}" style="width: 150px">
+                </div>
+
+                <div class="form-group">
                     <label>Thumb</label>
                     <input type="file" name="thumb" class="form-control @error('thumb') is-invalid @enderror" value="{{ old('thumb') }}">
+                    <small>*) Apabila gambar tidak diganti, kosongkan saja.</small>
+
                     @error('thumb')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -38,7 +50,7 @@
 
                 <div class="form-group">
                     <label>Deskripsi</label>
-                    <textarea name="desc" class="form-control @error('thumb') is-invalid @enderror" cols="20" rows="5">{{ old('desc') }}</textarea>
+                    <textarea name="desc" class="form-control @error('thumb') is-invalid @enderror" cols="20" rows="5">{{ old('desc', $data->desc) }}</textarea>
                     @error('desc')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
