@@ -88,7 +88,7 @@
     <div id="bisnis" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('lapetek-kategori') }}">Lapetek Kategori</a>
-            <a class="collapse-item" href="{{ route('lapetek') }}">Pengembangan Teknologi</a>
+            <a class="collapse-item" href="{{ route('lapatek') }}">Pengembangan Teknologi</a>
             <a class="collapse-item" href="{{ route('laytek-kategori') }}">Laytek Kategori</a>
             <a class="collapse-item" href="{{ route('laytek') }}">Layanan Teknis</a>
             <a class="collapse-item" href="{{ route('hotspot') }}">Inkubasi Teknologi</a>

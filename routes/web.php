@@ -210,12 +210,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('lapetek-kategori/{id}', 'LapatekkategoriController@update')->name('lapetek-kategori.update');
     Route::delete('lapetek-kategori/{id}', 'LapatekkategoriController@destroy')->name('lapetek-kategori.delete');
 
-    Route::get('lapetek', 'LapatekController@index')->name('lapetek');
-    Route::get('lapetek/create', 'LapatekController@create')->name('lapetek.create');
-    Route::post('lapetek', 'LapatekController@store')->name('lapetek.store');
-    Route::get('lapetek/edit/{id}', 'LapatekController@edit')->name('lapetek.edit');
-    Route::put('lapetek/{id}', 'LapatekController@update')->name('lapetek.update');
-    Route::delete('lapetek/{id}', 'LapatekController@destroy')->name('lapetek.delete');
+    Route::get('lapetek', 'LapatekController@index')->name('lapatek');
+    Route::get('lapatek/create', 'LapatekController@create')->name('lapatek.create');
+    Route::post('lapatek', 'LapatekController@store')->name('lapatek.store');
+    Route::get('lapatek/edit/{id}', 'LapatekController@edit')->name('lapatek.edit');
+    Route::put('lapatek/{id}', 'LapatekController@update')->name('lapatek.update');
+    Route::delete('lapatek/{id}', 'LapatekController@destroy')->name('lapatek.delete');
     
     Route::get('laytek-kategori', 'LaytekkategoriController@index')->name('laytek-kategori');
     Route::get('laytek-kategori/create', 'LaytekkategoriController@create')->name('laytek-kategori.create');

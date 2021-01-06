@@ -49,7 +49,7 @@ class LapatekController extends Controller
         //     'nama' => 'required',
         // ]);
 
-        $lapatek = New lapatek;
+        $lapatek = New Lapatek;
         $lapatek->lapatek_id = $request->lapatek_id;
         $lapatek->judul = $request->judul;
         $lapatek->slug = Str::slug($request->judul);

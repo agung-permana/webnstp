@@ -45,9 +45,12 @@ class LaytekController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'nama' => 'required',
-        // ]);
+        $request->validate([
+            'laytek_id' => 'required',
+            'judul' => 'required',
+            'desc' => 'required',
+            'thumb' => 'required',
+        ]);
 
         $laytek = New Laytek;
         $laytek->laytek_id = $request->laytek_id;
@@ -60,25 +63,45 @@ class LaytekController extends Controller
         $thumb->move('images/laytek', $namafile);
         $laytek->thumb = $namafile;
 
-        $gambar1 = $request->gambar1;
-        $namafile = time().'.'.$gambar1->getClientOriginalExtension();
-        $gambar1->move('images/laytek', $namafile);
-        $laytek->gambar1 = $namafile;
+        $file = $request->file('gambar1');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/laytek', $nama_foto);
+                $gambar1 = 'images/laytek/'.$nama_foto;
+            }else{
+                $gambar1 = '';
+            }
+        $laytek->gambar1 = $gambar1;
 
-        $gambar2 = $request->gambar2;
-        $namafile = time().'.'.$gambar2->getClientOriginalExtension();
-        $gambar2->move('images/laytek', $namafile);
-        $laytek->gambar2 = $namafile;
+        $file = $request->file('gambar2');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/laytek', $nama_foto);
+                $gambar2 = 'images/laytek/'.$nama_foto;
+            }else{
+                $gambar2 = '';
+            }
+        $laytek->gambar2 = $gambar2;
 
-        $gambar3 = $request->gambar3;
-        $namafile = time().'.'.$gambar3->getClientOriginalExtension();
-        $gambar3->move('images/laytek', $namafile);
-        $laytek->gambar3 = $namafile;
+        $file = $request->file('gambar3');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/laytek', $nama_foto);
+                $gambar3 = 'images/laytek/'.$nama_foto;
+            }else{
+                $gambar3 = '';
+            }
+        $laytek->gambar3 = $gambar3;
 
-        $gambar4 = $request->gambar4;
-        $namafile = time().'.'.$gambar4->getClientOriginalExtension();
-        $gambar4->move('images/laytek', $namafile);
-        $laytek->gambar4 = $namafile;
+        $file = $request->file('gambar4');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/laytek', $nama_foto);
+                $gambar4 = 'images/laytek/'.$nama_foto;
+            }else{
+                $gambar4 = '';
+            }
+        $laytek->gambar4 = $gambar4;
 
         $file = $request->file('gambar5');
             if ($file) {
