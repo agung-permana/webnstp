@@ -137,6 +137,36 @@ class LaytekController extends Controller
             $thumb->move('images/laytek', $namafile);
 
             $laytek->thumb = $namafile;
+
+            $gambar1 = $request->gambar1;
+            $namafile = time().'.'.$gambar1->getClientOriginalExtension();
+            $gambar1->move('images/laytek', $namafile);
+            $laytek->gambar1 = $namafile;
+
+            $gambar2 = $request->gambar2;
+            $namafile = time().'.'.$gambar2->getClientOriginalExtension();
+            $gambar2->move('images/laytek', $namafile);
+            $laytek->gambar2 = $namafile;
+
+            $gambar3 = $request->gambar3;
+            $namafile = time().'.'.$gambar3->getClientOriginalExtension();
+            $gambar3->move('images/laytek', $namafile);
+            $laytek->gambar3 = $namafile;
+
+            $gambar4 = $request->gambar4;
+            $namafile = time().'.'.$gambar4->getClientOriginalExtension();
+            $gambar4->move('images/laytek', $namafile);
+            $laytek->gambar4 = $namafile;
+
+            $file = $request->file('gambar5');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/laytek', $nama_foto);
+                    $gambar5 = 'images/laytek/'.$nama_foto;
+                }else{
+                    $gambar5 = '';
+                }
+            $laytek->gambar5 = $gambar5;
         }else{
             $laytek->laytek_id = $request->laytek_id;
             $laytek->judul = $request->judul;
@@ -158,9 +188,16 @@ class LaytekController extends Controller
      */
     public function destroy($id)
     {
-        $bidang = Laytekkategori::find($id);
-        $bidang->delete();
+        $program = Laytek::find($id);
+        $namafile = $program->gambar1;
+        $namafile = $program->gambar2;
+        $namafile = $program->gambar3;
+        $namafile = $program->gambar4;
+        $namafile = $program->gambar5;
+        $namafile = $program->thumb;
+        File::delete('images/laytek'.$namafile);
+        $program->delete();
         alert()->success('Berhasil','Data Berhasil Dihapus');
-        return redirect()->route('laytek-kategori');
+        return redirect()->route('laytek');
     }
 }

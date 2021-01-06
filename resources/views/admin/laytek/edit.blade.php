@@ -57,11 +57,21 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Gambar</label>
+                    <br><img src="{{ asset('images/laytek/'. $data->gambar1) }}" style="width: 150px">
+                </div>
+
+                <div class="form-group">
                     <label>Gambar 1</label>
                     <input type="file" name="gambar1" class="form-control @error('gambar1') is-invalid @enderror" value="{{ old('gambar1') }}">
                     @error('gambar1')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
+                </div>
+
+                <div class="form-group">
+                    <label>Gambar</label>
+                    <br><img src="{{ asset('images/laytek/'. $data->gambar2) }}" style="width: 150px">
                 </div>
 
                 <div class="form-group">
@@ -73,6 +83,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Gambar</label>
+                    <br><img src="{{ asset('images/laytek/'. $data->gambar3) }}" style="width: 150px">
+                </div>
+
+                <div class="form-group">
                     <label>Gambar 3</label>
                     <input type="file" name="gambar3" class="form-control @error('gambar3') is-invalid @enderror" value="{{ old('gambar3') }}">
                     @error('gambar3')
@@ -81,11 +96,21 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Gambar</label>
+                    <br><img src="{{ asset('images/laytek/'. $data->gambar4) }}" style="width: 150px">
+                </div>
+
+                <div class="form-group">
                     <label>Gambar 4</label>
                     <input type="file" name="gambar4" class="form-control @error('gambar4') is-invalid @enderror" value="{{ old('gambar4') }}">
                     @error('gambar4')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
+                </div>
+
+                <div class="form-group">
+                    <label>Gambar</label>
+                    <br><img src="{{ asset('images/laytek/'. $data->gambar5) }}" style="width: 150px">
                 </div>
 
                 <div class="form-group">
