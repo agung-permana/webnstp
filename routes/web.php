@@ -213,11 +213,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('lapetek', 'LapatekController@index')->name('lapetek');
     Route::get('lapetek/create', 'LapatekController@create')->name('lapetek.create');
     Route::post('lapetek', 'LapatekController@store')->name('lapetek.store');
-    Route::get('lapetek/{id}', 'LapatekController@show')->name('lapetek.show');
     Route::get('lapetek/edit/{id}', 'LapatekController@edit')->name('lapetek.edit');
     Route::put('lapetek/{id}', 'LapatekController@update')->name('lapetek.update');
     Route::delete('lapetek/{id}', 'LapatekController@destroy')->name('lapetek.delete');
-
+    
     Route::get('laytek-kategori', 'LaytekkategoriController@index')->name('laytek-kategori');
     Route::get('laytek-kategori/create', 'LaytekkategoriController@create')->name('laytek-kategori.create');
     Route::post('laytek-kategori', 'LaytekkategoriController@store')->name('laytek-kategori.store');
@@ -225,7 +224,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('laytek-kategori/edit/{id}', 'LaytekkategoriController@edit')->name('laytek-kategori.edit');
     Route::put('laytek-kategori/{id}', 'LaytekkategoriController@update')->name('laytek-kategori.update');
     Route::delete('laytek-kategori/{id}', 'LaytekkategoriController@destroy')->name('laytek-kategori.delete');
-
+    
     Route::get('laytek', 'LaytekController@index')->name('laytek');
     Route::get('laytek/create', 'LaytekController@create')->name('laytek.create');
     Route::post('laytek', 'LaytekController@store')->name('laytek.store');
@@ -239,10 +238,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');
     Route::put('/user/update/{id}', 'UserController@update')->name('user.update');
     Route::delete('/user/delete/{id}', 'UserController@delete')->name('user.hapus');
-
+    
 });
 Route::get('layanan-teknis', 'LaytekController@laytek');
 Route::get('layanan-teknis/{slug}', 'LaytekController@show')->name('laytek.show');
+Route::get('layanan-pengembangan-teknologi/{slug}', 'LapatekController@show')->name('lapetek.show');
 
 
 
