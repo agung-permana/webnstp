@@ -14,7 +14,8 @@ class LayananInkubasiController extends Controller
      */
     public function index()
     {
-        //
+        $inkubasi = LayananInkubasi::all();
+        return view('admin.layanan_inkubasi.index', compact('inkubasi'));
     }
 
     /**
@@ -24,7 +25,7 @@ class LayananInkubasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.layanan_inkubasi.create');
     }
 
     /**
@@ -35,7 +36,29 @@ class LayananInkubasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul' => 'required',
+            'desc' => 'required',
+        ]);
+
+        $inkubasi = New LayananInkubasi;
+        $inkubasi->judul = $request->judul;
+        $inkubasi->desc = $request->desc;
+
+        $file = $request->file('gambar');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/inkubasi', $nama_foto);
+                $gambar = 'images/inkubasi/'.$nama_foto;
+            }else{
+                $gambar = '';
+            }
+        $inkubasi->gambar = $gambar;
+
+        $inkubasi->save();
+        // return $request;
+        alert()->success('Berhasil','Data Berhasil Disimpan');
+        return redirect()->route('layanan-inkubasi');
     }
 
     /**
@@ -55,9 +78,10 @@ class LayananInkubasiController extends Controller
      * @param  \App\LayananInkubasi  $layananInkubasi
      * @return \Illuminate\Http\Response
      */
-    public function edit(LayananInkubasi $layananInkubasi)
+    public function edit($id)
     {
-        //
+        $data = LayananInkubasi::find($id);
+        return view('admin.layanan_inkubasi.edit', compact('data'));
     }
 
     /**
@@ -67,9 +91,26 @@ class LayananInkubasiController extends Controller
      * @param  \App\LayananInkubasi  $layananInkubasi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LayananInkubasi $layananInkubasi)
+    public function update(Request $request, $id)
     {
-        //
+        $inkubasi = LayananInkubasi::find($id);
+        $inkubasi->judul = $request->judul;
+        $inkubasi->desc = $request->desc;
+
+        $file = $request->file('gambar');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/inkubasi', $nama_foto);
+                $gambar = 'images/inkubasi/'.$nama_foto;
+            }else{
+                $gambar = '';
+            }
+        $inkubasi->gambar = $gambar;
+
+        $inkubasi->update();
+        // return $request;
+        alert()->success('Berhasil','Data Berhasil Diedit');
+        return redirect()->route('layanan-inkubasi');
     }
 
     /**
@@ -78,8 +119,11 @@ class LayananInkubasiController extends Controller
      * @param  \App\LayananInkubasi  $layananInkubasi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LayananInkubasi $layananInkubasi)
+    public function destroy($id)
     {
-        //
+        $inkubasi = layananInkubasi::find($id);
+        $inkubasi->delete();
+        alert()->success('Berhasil','Data Berhasil Dihapus');
+        return redirect()->route('layanan-inkubasi');
     }
 }

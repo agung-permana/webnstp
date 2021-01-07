@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            Kategori Layanan Teknis
+            Layanan Teknis
             <a href="{{ route('laytek.create') }}" style="float: right" class="btn btn-primary btn-sm">
                 <i class="fas fa-plus"></i> Tambah
             </a>

@@ -10,6 +10,17 @@
                 @method('PUT')
                 @csrf
 
+                @if (Auth::check() && Auth::user()->level == 'admin')
+                <div class="form-group">
+                    <label>Status Approve</label>
+                    <select name="status" class="form-control">
+                        <option value="" hidden>-- Status Approve --</option>
+                        <option value="1">Setujui</option>
+                        <option value="0">Tolak</option>
+                    </select>
+                </div>
+                @endif
+
                 <div class="form-group">
                     <label>Judul</label>
                     <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul', $berita->judul) }}">
@@ -36,6 +47,8 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{{ route('berita') }}" class="btn btn-danger">Kembali</a>
+
             </form>
         </div>
     </div>

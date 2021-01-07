@@ -91,7 +91,7 @@
             <a class="collapse-item" href="{{ route('lapatek') }}">Pengembangan Teknologi</a>
             <a class="collapse-item" href="{{ route('laytek-kategori') }}">Laytek Kategori</a>
             <a class="collapse-item" href="{{ route('laytek') }}">Layanan Teknis</a>
-            <a class="collapse-item" href="{{ route('hotspot') }}">Inkubasi Teknologi</a>
+            <a class="collapse-item" href="{{ route('layanan-inkubasi') }}">Inkubasi Teknologi</a>
         </div>
     </div>
 </li>

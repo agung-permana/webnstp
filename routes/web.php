@@ -99,6 +99,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/berita/edit/{id}', 'BeritaController@edit')->name('berita.edit');
     Route::put('/berita/update/{id}', 'BeritaController@update')->name('berita.update');
     Route::delete('/berita/delete/{id}', 'BeritaController@destroy')->name('berita.delete');
+    Route::get('/berita/approve', 'BeritaController@approve')->name('berita.approve');
 
     Route::get('/lab', 'LabController@index')->name('lab');
     Route::get('/lab/create', 'LabController@create')->name('lab.create');
@@ -251,7 +252,7 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('layanan-teknis', 'LaytekController@laytek');
 Route::get('layanan-teknis/{slug}', 'LaytekController@show')->name('laytek.show');
 
-Route::get('layanan-pengembangan-teknologi', 'LaytekController@lapatek');
+Route::get('layanan-pengembangan-teknologi', 'LapatekController@lapatek');
 Route::get('layanan-pengembangan-teknologi/{slug}', 'LapatekController@show')->name('lapetek.show');
 
 Route::get('/berita-nstp', 'BeritaController@berita')->name('berita-nstp');

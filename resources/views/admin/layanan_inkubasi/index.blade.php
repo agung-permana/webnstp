@@ -3,47 +3,47 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            Manajemen Berita
-            <a href="{{ route('berita.create') }}" style="float: right" class="btn btn-primary btn-sm ml-3">
-                <i class="fas fa-plus"></i> Tambah
-            </a>
+            Layanan Inkubasi
             @if (Auth::check() && Auth::user()->level == 'admin')
-            <a href="{{ route('berita.approve') }}" style="float: right" class="btn btn-success btn-sm">
-                <i class="fas fa-spinner"></i> Perlu di Approve
+            <a href="{{ route('layanan-inkubasi.create') }}" style="float: right" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"></i> Tambah
             </a>
             @endif
         </div>
         <div class="card-body">
-            <table id="myTable" class="table table-bordered table-responsive">
+            <table id="myTable" class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr>
                         <th>No.</th>
                         <th>Judul</th>
-                        <th>Penulis</th>
-                        <th>Deskripsi</th>
+                        <th>Desc</th>
                         <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($berita as $item)
+                    @foreach ($inkubasi as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->judul }}</td>
-                            <td>{{ $item->user->name }}</td>
                             <td>{{ $item->desc }}</td>
-                            <td><img style="width: 100px" src="{{ asset('images/berita/'. $item->gambar) }}" alt=""></td>
                             <td>
-                                <a href="{{ route('berita.edit', $item->id) }}" class="btn btn-primary btn-sm">
+                                <img width="100" src="{{ asset($item->gambar) }}" alt="">
+                            </td>
+                            <td>
+                                <a href="{{ route('layanan-inkubasi.edit', $item->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form class="d-inline" action="{{ route('berita.delete', $item->id) }}" method="post">
+
+                                @if (Auth::check() && Auth::user()->level == 'admin')
+                                <form class="d-inline" action="{{ route('layanan-inkubasi.delete', $item->id) }}" method="post">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

@@ -29,7 +29,13 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $berita = Berita::all();
+        $berita = Berita::where('status', '1')->get();
+        return view('admin.berita.index', compact('berita'));
+    }
+
+    public function approve()
+    {
+        $berita = Berita::where('status', '0')->get();
         return view('admin.berita.index', compact('berita'));
     }
 
@@ -77,7 +83,7 @@ class BeritaController extends Controller
         }
         $berita->save();
         // return $request;
-        alert()->success('Berhasil','Data Berhasil Disimpan');
+        alert()->success('Berhasil','Menunggu Disetujui Oleh Admin');
         return redirect()->route('berita');
     }
 
@@ -125,6 +131,11 @@ class BeritaController extends Controller
             $gambar->move('images/berita', $namafile);
 
             $berita->gambar = $namafile;
+        }elseif($request->has('status')){
+            $berita->judul = $request->judul;
+            $berita->desc = $request->desc;
+            $berita->slug = Str::slug($request->judul);
+            $berita->status = $request->status;
         }else{
             $berita->judul = $request->judul;
             $berita->desc = $request->desc;
