@@ -232,6 +232,13 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('laytek/{id}', 'LaytekController@update')->name('laytek.update');
     Route::delete('laytek/{id}', 'LaytekController@destroy')->name('laytek.delete');
 
+    Route::get('layanan-inkubasi', 'LayananInkubasiController@index')->name('layanan-inkubasi');
+    Route::get('layanan-inkubasi/create', 'LayananInkubasiController@create')->name('layanan-inkubasi.create');
+    Route::post('layanan-inkubasi', 'LayananInkubasiController@store')->name('layanan-inkubasi.store');
+    Route::get('layanan-inkubasi/edit/{id}', 'LayananInkubasiController@edit')->name('layanan-inkubasi.edit');
+    Route::put('layanan-inkubasi/{id}', 'LayananInkubasiController@update')->name('layanan-inkubasi.update');
+    Route::delete('layanan-inkubasi/{id}', 'LayananInkubasiController@destroy')->name('layanan-inkubasi.delete');
+
     Route::get('/user', 'UserController@index')->name('user');
     Route::get('/user/create', 'UserController@create')->name('user.create');
     Route::post('/user', 'UserController@store')->name('user.store');
