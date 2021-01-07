@@ -8,7 +8,6 @@
                   <div class="breadcrumb-text">
                       <div class="bt-option">
                           <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-                          <a href="#">Media</a>
                           <span>Berita</span>
                       </div>
                   </div>
