@@ -240,8 +240,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::delete('/user/delete/{id}', 'UserController@delete')->name('user.hapus');
     
 });
+
 Route::get('layanan-teknis', 'LaytekController@laytek');
 Route::get('layanan-teknis/{slug}', 'LaytekController@show')->name('laytek.show');
+Route::get('layanan-pengembangan-teknologi', 'LaytekController@lapatek');
 Route::get('layanan-pengembangan-teknologi/{slug}', 'LapatekController@show')->name('lapetek.show');
 
 
