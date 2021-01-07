@@ -206,7 +206,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('lapetek-kategori', 'LapatekkategoriController@index')->name('lapetek-kategori');
     Route::get('lapetek-kategori/create', 'LapatekkategoriController@create')->name('lapetek-kategori.create');
     Route::post('lapetek-kategori', 'LapatekkategoriController@store')->name('lapetek-kategori.store');
-    Route::get('lapetek-kategori/{id}', 'LapatekkategoriController@show')->name('lapetek-kategori.show');
     Route::get('lapetek-kategori/edit/{id}', 'LapatekkategoriController@edit')->name('lapetek-kategori.edit');
     Route::put('lapetek-kategori/{id}', 'LapatekkategoriController@update')->name('lapetek-kategori.update');
     Route::delete('lapetek-kategori/{id}', 'LapatekkategoriController@destroy')->name('lapetek-kategori.delete');
@@ -253,7 +252,7 @@ Route::get('layanan-teknis', 'LaytekController@laytek');
 Route::get('layanan-teknis/{slug}', 'LaytekController@show')->name('laytek.show');
 
 Route::get('layanan-pengembangan-teknologi', 'LapatekController@lapatek');
-Route::get('layanan-pengembangan-teknologi/{slug}', 'LapatekController@show')->name('lapetek.show');
+Route::get('layanan-pengembangan-teknologi/{slug}', 'LapatekController@show')->name('lapatek.show');
 
 Route::get('/berita-nstp', 'BeritaController@berita')->name('berita-nstp');
 Route::get('/berita-nstp/{slug}', 'BeritaController@berita_detail')->name('berita-detail');
