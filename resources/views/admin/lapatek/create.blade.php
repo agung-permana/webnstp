@@ -10,7 +10,7 @@
                 @csrf
                 <div class="form-group">
                     <label>Nama Kategori</label>
-                    <select name="laytek_id" class="form-control">
+                    <select name="lapatek_id" class="form-control">
                         <option value="" hidden>-- Pilih Kategori --</option>
                         @foreach ($kategori as $item)
                             <option value="{{ $item->id }}">{{ $item->nama }}</option>

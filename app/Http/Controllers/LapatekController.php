@@ -60,15 +60,25 @@ class LapatekController extends Controller
         $thumb->move('images/lapatek', $namafile);
         $lapatek->thumb = $namafile;
 
-        $gambar1 = $request->gambar1;
-        $namafile = time().'.'.$gambar1->getClientOriginalExtension();
-        $gambar1->move('images/lapatek', $namafile);
-        $lapatek->gambar1 = $namafile;
+        $file = $request->file('gambar1');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/lapatek', $nama_foto);
+                $gambar1 = 'images/lapatek/'.$nama_foto;
+            }else{
+                $gambar1 = '';
+            }
+        $lapatek->gambar1 = $gambar1;
 
-        $gambar2 = $request->gambar2;
-        $namafile = time().'.'.$gambar2->getClientOriginalExtension();
-        $gambar2->move('images/lapatek', $namafile);
-        $lapatek->gambar2 = $namafile;
+        $file = $request->file('gambar2');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/lapatek', $nama_foto);
+                $gambar2 = 'images/lapatek/'.$nama_foto;
+            }else{
+                $gambar2 = '';
+            }
+        $lapatek->gambar2 = $gambar2;
 
         $file = $request->file('gambar3');
             if ($file) {
@@ -121,7 +131,7 @@ class LapatekController extends Controller
      */
     public function edit($id)
     {
-        $kategori = lapatekkategori::all();
+        $kategori = Lapatekkategori::all();
         $data = lapatek::find($id);
         return view('admin.lapatek.edit', compact('data', 'kategori'));
     }
@@ -135,7 +145,7 @@ class LapatekController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $lapatek = lapatek::find($id);
+        $lapatek = Lapatek::find($id);
         if($request->has('thumb')){
             $lapatek->lapatek_id = $request->lapatek_id;
             $lapatek->judul = $request->judul;
@@ -145,28 +155,47 @@ class LapatekController extends Controller
             $thumb = $request->thumb;
             $namafile = time().'.'.$thumb->getClientOriginalExtension();
             $thumb->move('images/lapatek', $namafile);
-
             $lapatek->thumb = $namafile;
 
-            $gambar1 = $request->gambar1;
-            $namafile = time().'.'.$gambar1->getClientOriginalExtension();
-            $gambar1->move('images/lapatek', $namafile);
-            $lapatek->gambar1 = $namafile;
+            $file = $request->file('gambar1');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/lapatek', $nama_foto);
+                $gambar1 = 'images/lapatek/'.$nama_foto;
+            }else{
+                $gambar1 = '';
+            }
+            $lapatek->gambar1 = $gambar1;
 
-            $gambar2 = $request->gambar2;
-            $namafile = time().'.'.$gambar2->getClientOriginalExtension();
-            $gambar2->move('images/lapatek', $namafile);
-            $lapatek->gambar2 = $namafile;
+            $file = $request->file('gambar2');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar2 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar2 = '';
+                }
+            $lapatek->gambar2 = $gambar2;
 
-            $gambar3 = $request->gambar3;
-            $namafile = time().'.'.$gambar3->getClientOriginalExtension();
-            $gambar3->move('images/lapatek', $namafile);
-            $lapatek->gambar3 = $namafile;
+            $file = $request->file('gambar3');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar3 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar3 = '';
+                }
+            $lapatek->gambar3 = $gambar3;
 
-            $gambar4 = $request->gambar4;
-            $namafile = time().'.'.$gambar4->getClientOriginalExtension();
-            $gambar4->move('images/lapatek', $namafile);
-            $lapatek->gambar4 = $namafile;
+            $file = $request->file('gambar4');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar4 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar4 = '';
+                }
+            $lapatek->gambar4 = $gambar4;
 
             $file = $request->file('gambar5');
                 if ($file) {
@@ -178,13 +207,13 @@ class LapatekController extends Controller
                 }
             $lapatek->gambar5 = $gambar5;
         }else{
-            $lapatek->lapatek_id = $request->laytek_id;
-            $laytek->judul = $request->judul;
-            $laytek->slug = Str::slug($request->judul);
-            $laytek->desc = $request->desc;
+            $lapatek->lapatek_id = $request->lapatek_id;
+            $lapatek->judul = $request->judul;
+            $lapatek->slug = Str::slug($request->judul);
+            $lapatek->desc = $request->desc;
         }
 
-        $laytek->update();
+        $lapatek->update();
         // return $request;
         alert()->success('Berhasil','Data Berhasil Diedit');
         return redirect()->route('lapatek');
@@ -198,7 +227,7 @@ class LapatekController extends Controller
      */
     public function destroy($id)
     {
-        $program = lapatek::find($id);
+        $program = Lapatek::find($id);
         $namafile = $program->gambar1;
         $namafile = $program->gambar2;
         $namafile = $program->gambar3;

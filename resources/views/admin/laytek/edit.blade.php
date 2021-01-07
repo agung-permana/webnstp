@@ -122,7 +122,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{ route('lapetek-kategori') }}" class="btn btn-danger">Batal</a>
+                <a href="{{ route('laytek') }}" class="btn btn-danger">Batal</a>
             </form>
         </div>
     </div>

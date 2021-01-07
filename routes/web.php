@@ -243,14 +243,12 @@ Route::group(['middleware' => 'auth'], function() {
 
 Route::get('layanan-teknis', 'LaytekController@laytek');
 Route::get('layanan-teknis/{slug}', 'LaytekController@show')->name('laytek.show');
+
 Route::get('layanan-pengembangan-teknologi', 'LaytekController@lapatek');
 Route::get('layanan-pengembangan-teknologi/{slug}', 'LapatekController@show')->name('lapetek.show');
 
-
-
 Route::get('/berita-nstp', 'BeritaController@berita')->name('berita-nstp');
 Route::get('/berita-nstp/{slug}', 'BeritaController@berita_detail')->name('berita-detail');
-
 
 Route::get('/produk-nstp', 'ProdukController@produk')->name('produk-nstp');
 Route::get('/produk-detail/{kategori_id}', 'ProdukController@produk_detail')->name('produk-detail');
