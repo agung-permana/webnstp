@@ -22,7 +22,7 @@
                     <div class="card mt-4">
                         <a href="{{ route('lapatek.show', $item->slug) }}">
                             <div class="bi-pic text-center">
-                                <img src="{{ asset('images/lapatek  /'.$item->thumb) }}" alt="">
+                                <img src="{{ asset('images/lapatek/'.$item->thumb) }}" alt="">
                             </div>
                             <div class="card-body">
                                 <h6 class="card-text"><strong>{{ $item->kategori->nama }}</strong></h6>

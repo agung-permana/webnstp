@@ -157,6 +157,7 @@ class LapatekController extends Controller
             $thumb->move('images/lapatek', $namafile);
             $lapatek->thumb = $namafile;
 
+        }else{
             $file = $request->file('gambar1');
             if ($file) {
                 $nama_foto = $file->getClientOriginalName();
@@ -206,7 +207,7 @@ class LapatekController extends Controller
                     $gambar5 = '';
                 }
             $lapatek->gambar5 = $gambar5;
-        }else{
+
             $lapatek->lapatek_id = $request->lapatek_id;
             $lapatek->judul = $request->judul;
             $lapatek->slug = Str::slug($request->judul);

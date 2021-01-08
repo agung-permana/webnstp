@@ -31,10 +31,10 @@
                             <td>{{ $item->desc }}</td>
                             <td>
                                 <img width="100" src="{{ asset($item->gambar1) }}" alt="">
-                                <img width="100" src="{{ asset('images/lapatek/'.$item->gambar2) }}" alt="">
-                                <img width="100" src="{{ asset('images/lapatek/'.$item->gambar3) }}" alt="">
-                                <img width="100" src="{{ asset('images/lapatek/'.$item->gambar4) }}" alt="">
-                                <img width="100" src="{{ asset('images/lapatek/'.$item->gambar5) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar2) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar3) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar4) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar5) }}" alt="">
 
                             </td>
                             <td>
