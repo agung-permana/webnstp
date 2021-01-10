@@ -30,11 +30,15 @@
                             <td><img width="100" src="{{ asset('images/laytek/'.$item->thumb) }}" alt=""></td>
                             <td>{{ $item->desc }}</td>
                             <td>
-                                <img width="100" src="{{ asset('images/laytek/'.$item->gambar1) }}" alt="">
-                                <img width="100" src="{{ asset('images/laytek/'.$item->gambar2) }}" alt="">
-                                <img width="100" src="{{ asset('images/laytek/'.$item->gambar3) }}" alt="">
-                                <img width="100" src="{{ asset('images/laytek/'.$item->gambar4) }}" alt="">
-                                <img width="100" src="{{ asset('images/laytek/'.$item->gambar5) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar1) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar2) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar3) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar4) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar5) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar6) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar7) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar8) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar9) }}" alt="">
 
                             </td>
                             <td>
