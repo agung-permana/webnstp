@@ -84,6 +84,38 @@
                     @enderror
                 </div>
 
+                <div class="form-group">
+                    <label>Gambar 6</label>
+                    <input type="file" name="gambar6" class="form-control @error('gambar6') is-invalid @enderror" value="{{ old('gambar6') }}">
+                    @error('gambar6')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label>Gambar 7</label>
+                    <input type="file" name="gambar7" class="form-control @error('gambar7') is-invalid @enderror" value="{{ old('gambar7') }}">
+                    @error('gambar7')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label>Gambar 8</label>
+                    <input type="file" name="gambar8" class="form-control @error('gambar8') is-invalid @enderror" value="{{ old('gambar8') }}">
+                    @error('gambar8')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label>Gambar 9</label>
+                    <input type="file" name="gambar9" class="form-control @error('gambar9') is-invalid @enderror" value="{{ old('gambar9') }}">
+                    @error('gambar9')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="{{ route('lapetek-kategori') }}" class="btn btn-danger">Batal</a>
             </form>

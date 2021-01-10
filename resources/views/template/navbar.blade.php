@@ -15,11 +15,11 @@
                                     </ul>
                                 </li>
 
-                                <li class="{{ Request::is('layanan-teknis') ? 'active' : ''}} {{ Request::is('layanan-teknis') ? 'active' : ''}} {{ Request::is('layanan-pengembangan-teknologi') ? 'active' : ''}}"><a href="#">Bisnis Dan Inovasi</a>
+                                <li class="{{ Request::is('layanan-teknis') ? 'active' : ''}} {{ Request::is('layanan-teknis') ? 'active' : ''}} {{ Request::is('layanan-pengembangan-teknologi') ? 'active' : ''}} {{ Request::is('layanan-inkubasi-teknologi') ? 'active' : ''}}"><a href="#">Bisnis Dan Inovasi</a>
                                     <ul class="dropdown">
                                       <li><a href="{{ url('layanan-pengembangan-teknologi') }}">Layanan Pengembang Teknologi</a></li>
                                       <li><a href="{{ url('layanan-teknis') }}">Layanan Teknis</a></li>
-                                      <li><a href="#">Layanan Inkubasi Teknologi</a></li>
+                                      <li><a href="{{ url('layanan-inkubasi-teknologi') }}">Layanan Inkubasi Teknologi</a></li>
                                     </ul>
                                 </li>
 

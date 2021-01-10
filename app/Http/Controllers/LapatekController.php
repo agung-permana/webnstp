@@ -110,6 +110,46 @@ class LapatekController extends Controller
             }
         $lapatek->gambar5 = $gambar5;
 
+        $file = $request->file('gambar6');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar6 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar6 = '';
+                }
+            $lapatek->gambar6 = $gambar6;
+
+            $file = $request->file('gambar7');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar7 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar7 = '';
+                }
+            $lapatek->gambar7 = $gambar7;
+
+            $file = $request->file('gambar9');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar8 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar8 = '';
+                }
+            $lapatek->gambar8 = $gambar8;
+
+            $file = $request->file('gambar9');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar9 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar9 = '';
+                }
+            $lapatek->gambar9 = $gambar9;
+
         
         $lapatek->save();
         // return $request;
@@ -157,7 +197,6 @@ class LapatekController extends Controller
             $thumb->move('images/lapatek', $namafile);
             $lapatek->thumb = $namafile;
 
-        }else{
             $file = $request->file('gambar1');
             if ($file) {
                 $nama_foto = $file->getClientOriginalName();
@@ -207,6 +246,48 @@ class LapatekController extends Controller
                     $gambar5 = '';
                 }
             $lapatek->gambar5 = $gambar5;
+
+            $file = $request->file('gambar6');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar6 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar6 = '';
+                }
+            $lapatek->gambar6 = $gambar6;
+
+            $file = $request->file('gambar7');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar7 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar7 = '';
+                }
+            $lapatek->gambar7 = $gambar7;
+
+            $file = $request->file('gambar9');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar8 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar8 = '';
+                }
+            $lapatek->gambar8 = $gambar8;
+
+            $file = $request->file('gambar9');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar9 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar9 = '';
+                }
+            $lapatek->gambar9 = $gambar9;
+
+        }else{
 
             $lapatek->lapatek_id = $request->lapatek_id;
             $lapatek->judul = $request->judul;

@@ -9,7 +9,7 @@
                     <div class="breadcrumb-text">
                         <div class="bt-option">
                             <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-                            <a href="#">Layanan Teknis</a>
+                            <a href="{{ url('layanan-pengembangan-teknologi') }}">Layanan Pengembangan Teknologi</a>
                             <span>{{ $show->kategori->nama }}</span>
                         </div>
                     </div>
@@ -17,7 +17,7 @@
                 
                 <div class="col-md-12">
                     <div class="mt-3">
-                        <h2 class="mb-3" style="text-transform: uppercase;">{{ $show->judul }}</h2>
+                        <h2 class="mb-3" style="text-transform: uppercase;"><strong>{{ $show->judul }}</strong></h2>
                         <h5 class="mb-3">{{ $show->desc }}</h5>
                     </div>
                     <img class="shadow mb-5" src="{{ asset($show->gambar1) }}" alt="">

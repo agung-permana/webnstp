@@ -48,7 +48,6 @@ class LaytekController extends Controller
         $request->validate([
             'laytek_id' => 'required',
             'judul' => 'required',
-            'desc' => 'required',
             'thumb' => 'required',
         ]);
 
@@ -113,6 +112,46 @@ class LaytekController extends Controller
             }
         $laytek->gambar5 = $gambar5;
 
+        $file = $request->file('gambar6');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar6 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar6 = '';
+                }
+            $lapatek->gambar6 = $gambar6;
+
+            $file = $request->file('gambar7');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar7 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar7 = '';
+                }
+            $lapatek->gambar7 = $gambar7;
+
+            $file = $request->file('gambar9');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar8 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar8 = '';
+                }
+            $lapatek->gambar8 = $gambar8;
+
+            $file = $request->file('gambar9');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar9 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar9 = '';
+                }
+            $lapatek->gambar9 = $gambar9;
+
         
         $laytek->save();
         // return $request;
@@ -158,38 +197,108 @@ class LaytekController extends Controller
             $thumb = $request->thumb;
             $namafile = time().'.'.$thumb->getClientOriginalExtension();
             $thumb->move('images/laytek', $namafile);
-
             $laytek->thumb = $namafile;
 
-            $gambar1 = $request->gambar1;
-            $namafile = time().'.'.$gambar1->getClientOriginalExtension();
-            $gambar1->move('images/laytek', $namafile);
-            $laytek->gambar1 = $namafile;
+            $file = $request->file('gambar1');
+            if ($file) {
+                $nama_foto = $file->getClientOriginalName();
+                $file->move('images/lapatek', $nama_foto);
+                $gambar1 = 'images/lapatek/'.$nama_foto;
+            }else{
+                $gambar1 = '';
+            }
+            $lapatek->gambar1 = $gambar1;
 
-            $gambar2 = $request->gambar2;
-            $namafile = time().'.'.$gambar2->getClientOriginalExtension();
-            $gambar2->move('images/laytek', $namafile);
-            $laytek->gambar2 = $namafile;
+            $file = $request->file('gambar2');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar2 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar2 = '';
+                }
+            $lapatek->gambar2 = $gambar2;
 
-            $gambar3 = $request->gambar3;
-            $namafile = time().'.'.$gambar3->getClientOriginalExtension();
-            $gambar3->move('images/laytek', $namafile);
-            $laytek->gambar3 = $namafile;
+            $file = $request->file('gambar3');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar3 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar3 = '';
+                }
+            $lapatek->gambar3 = $gambar3;
 
-            $gambar4 = $request->gambar4;
-            $namafile = time().'.'.$gambar4->getClientOriginalExtension();
-            $gambar4->move('images/laytek', $namafile);
-            $laytek->gambar4 = $namafile;
+            $file = $request->file('gambar4');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar4 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar4 = '';
+                }
+            $lapatek->gambar4 = $gambar4;
 
             $file = $request->file('gambar5');
                 if ($file) {
                     $nama_foto = $file->getClientOriginalName();
-                    $file->move('images/laytek', $nama_foto);
-                    $gambar5 = 'images/laytek/'.$nama_foto;
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar5 = 'images/lapatek/'.$nama_foto;
                 }else{
                     $gambar5 = '';
                 }
-            $laytek->gambar5 = $gambar5;
+            $lapatek->gambar5 = $gambar5;
+
+            $file = $request->file('gambar5');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar5 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar5 = '';
+                }
+            $lapatek->gambar5 = $gambar5;
+
+            $file = $request->file('gambar6');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar6 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar6 = '';
+                }
+            $lapatek->gambar6 = $gambar6;
+
+            $file = $request->file('gambar7');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar7 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar7 = '';
+                }
+            $lapatek->gambar7 = $gambar7;
+
+            $file = $request->file('gambar9');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar8 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar8 = '';
+                }
+            $lapatek->gambar8 = $gambar8;
+
+            $file = $request->file('gambar9');
+                if ($file) {
+                    $nama_foto = $file->getClientOriginalName();
+                    $file->move('images/lapatek', $nama_foto);
+                    $gambar9 = 'images/lapatek/'.$nama_foto;
+                }else{
+                    $gambar9 = '';
+                }
+            $lapatek->gambar9 = $gambar9;
+
         }else{
             $laytek->laytek_id = $request->laytek_id;
             $laytek->judul = $request->judul;

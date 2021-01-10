@@ -248,6 +248,8 @@ Route::group(['middleware' => 'auth'], function() {
     
 });
 
+Route::get('layanan-inkubasi-teknologi', 'LayananInkubasiController@inkubasi');
+
 Route::get('layanan-teknis', 'LaytekController@laytek');
 Route::get('layanan-teknis/{slug}', 'LaytekController@show')->name('laytek.show');
 

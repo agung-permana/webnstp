@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </div>
-            <h2><strong>Layanan Pengembangan Teknologi</strong></h2>
+            <h2 style="text-transform: uppercase;"><strong>Layanan Pengembangan Teknologi</strong></h2>
             <h5>NSTP-BPPT memberikan Layanan pengembangan produk unggulan di berbagai bidang teknologi.</h5>
             <div class="row">
                 @foreach ($data as $item)

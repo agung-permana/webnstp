@@ -14,8 +14,9 @@
                     </div>
                 </div>
             </div>
-            <h1><strong>LAYANAN TEKNIS</strong></h1>
-            <h4>NSTP-BPPT memberikan Layanan Teknis di berbagai bidang teknologi.</h4>
+            <h2 style="text-transform: uppercase;"><strong>Layan Teknis</strong></h2>
+            <h5>NSTP-BPPT memberikan Layanan Teknis di berbagai bidang teknologi.</h5>
+            
             <div class="row">
                 @foreach ($data as $item)
                 <div class="col-md-3">

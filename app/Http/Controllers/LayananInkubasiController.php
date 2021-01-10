@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class LayananInkubasiController extends Controller
 {
+    public function inkubasi()
+    {
+        $data = LayananInkubasi::all()->first();
+        return view('layanan_inkubasi', compact('data'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -121,7 +126,7 @@ class LayananInkubasiController extends Controller
      */
     public function destroy($id)
     {
-        $inkubasi = layananInkubasi::find($id);
+        $inkubasi = LayananInkubasi::find($id);
         $inkubasi->delete();
         alert()->success('Berhasil','Data Berhasil Dihapus');
         return redirect()->route('layanan-inkubasi');
