@@ -130,7 +130,7 @@ class LapatekController extends Controller
                 }
             $lapatek->gambar7 = $gambar7;
 
-            $file = $request->file('gambar9');
+            $file = $request->file('gambar8');
                 if ($file) {
                     $nama_foto = $file->getClientOriginalName();
                     $file->move('images/lapatek', $nama_foto);
@@ -267,7 +267,7 @@ class LapatekController extends Controller
                 }
             $lapatek->gambar7 = $gambar7;
 
-            $file = $request->file('gambar9');
+            $file = $request->file('gambar8');
                 if ($file) {
                     $nama_foto = $file->getClientOriginalName();
                     $file->move('images/lapatek', $nama_foto);

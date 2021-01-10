@@ -35,6 +35,10 @@
                                 <img width="100" src="{{ asset($item->gambar3) }}" alt="">
                                 <img width="100" src="{{ asset($item->gambar4) }}" alt="">
                                 <img width="100" src="{{ asset($item->gambar5) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar6) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar7) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar8) }}" alt="">
+                                <img width="100" src="{{ asset($item->gambar9) }}" alt="">
 
                             </td>
                             <td>
