@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Pemasaran;
+use App\Kontak;
 use Illuminate\Http\Request;
 
-class PemasaranController extends Controller
+class KontakController extends Controller
 {
+    public function kontak()
+    {
+        return view('kontak');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +18,8 @@ class PemasaranController extends Controller
      */
     public function index()
     {
-        $pemasaran = Pemasaran::all();
-        return view('admin.db_tekno.pemasaran.index', compact('pemasaran'));
+        $data = Kontak::all();
+        return view('admin.kontak.index', compact('data'));
     }
 
     /**
@@ -25,7 +29,7 @@ class PemasaranController extends Controller
      */
     public function create()
     {
-        return view('admin.db_tekno.pemasaran.create');
+        //
     }
 
     /**
@@ -37,72 +41,69 @@ class PemasaranController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'pemasaran' => 'required',
+            'nama' => 'required',
+            'email' => 'required',
+            'subyek' => 'required',
+            'nama_perusahaan' => 'required',
+            'pesan' => 'required|min: 12'
         ]);
 
-        $tentang = New Pemasaran;
-        $tentang->pemasaran = $request->pemasaran;
-        $tentang->save();
+        $kontak = New Kontak;
+        $kontak->nama = $request->nama;
+        $kontak->email = $request->email;
+        $kontak->subyek = $request->subyek;
+        $kontak->nama_perusahaan = $request->nama_perusahaan;
+        $kontak->pesan = $request->pesan;
+        $kontak->save();
         // return $request;
-        alert()->success('Berhasil','Data Berhasil Disimpan');
-        return redirect()->route('pemasaran');
+        return redirect()->route('kontak-kami')->with('status', 'Pesan Sudah Terikirim!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Bidang  $bidang
+     * @param  \App\Kontak  $kontak
      * @return \Illuminate\Http\Response
      */
-    public function show(Bidang $bidang)
+    public function show(Kontak $kontak)
     {
-        // 
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Bidang  $bidang
+     * @param  \App\Kontak  $kontak
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Kontak $kontak)
     {
-        $pemasaran = Pemasaran::find($id);
-        return view('admin.db_tekno.pemasaran.edit', compact('pemasaran'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Bidang  $bidang
+     * @param  \App\Kontak  $kontak
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Kontak $kontak)
     {
-        $request->validate([
-            'pemasaran' => 'required',
-        ]);
-
-        $tentang = pemasaran::find($id);
-        $tentang->pemasaran = $request->pemasaran;
-        $tentang->update();
-        // return $request;
-        alert()->success('Berhasil','Data Berhasil Diedit');
-        return redirect()->route('pemasaran');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Bidang  $bidang
+     * @param  \App\Kontak  $kontak
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $pemasaran = Pemasaran::find($id);
+        $pemasaran = Kontak::find($id);
         $pemasaran->delete();
         alert()->success('Berhasil','Data Berhasil Dihapus');
-        return redirect()->route('pemasaran');
+        return redirect()->route('kontak');
     }
 }

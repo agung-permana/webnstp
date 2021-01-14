@@ -245,8 +245,22 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');
     Route::put('/user/update/{id}', 'UserController@update')->name('user.update');
     Route::delete('/user/delete/{id}', 'UserController@delete')->name('user.hapus');
-    
+
+    Route::get('kompetensi-nstp-bppt', 'KompetensiController@kompetensi')->name('kompetensi');
+    Route::get('layanan-teknologi', 'LayananteknoController@layanan')->name('layanan_teknologi');
+    Route::get('produk-teknologi', 'ProdukteknoController@produk')->name('produk_teknologi');
+
 });
+
+Route::get('kontak-kami', 'KontakController@kontak')->name('kontak-kami');
+Route::post('kontak-kami', 'KontakController@store')->name('kontak.store');
+
+Route::get('kontak', 'KontakController@index')->name('kontak');
+// Route::get('kontak/create', 'KontakController@create')->name('kontak.create');
+Route::get('kontak/edit/{id}', 'KontakController@edit')->name('kontak.edit');
+Route::post('kontak', 'KontakController@update')->name('kontak.update');
+Route::delete('kontak/{id}', 'KontakController@destroy')->name('kontak.delete');
+
 
 Route::get('layanan-inkubasi-teknologi', 'LayananInkubasiController@inkubasi');
 
@@ -268,8 +282,6 @@ Route::get('/profil-nstp/{slug}', 'ProfilController@show')->name('profil.show');
 Route::get('gambar3d/{slug}', 'ObjekController@objek')->name('object3d');
 Route::get('panorama', 'SceneController@panorama')->name('panorama');
 
-Route::get('kompetensi-nstp-bppt', 'KompetensiController@kompetensi')->name('kompetensi');
-Route::get('layanan-teknologi', 'LayananteknoController@layanan')->name('layanan_teknologi');
-Route::get('produk-teknologi', 'ProdukteknoController@produk')->name('produk_teknologi');
+
 
 

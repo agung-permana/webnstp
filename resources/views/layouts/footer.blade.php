@@ -14,6 +14,12 @@
     <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
 
     <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+
+    <script>
     $(function () {
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
@@ -22,11 +28,8 @@
         $('.textarea').wysihtml5()
     })
     </script>
-    <script>
-        $(document).ready( function () {
-            $('#myTable').DataTable();
-        } );
-    </script>
+
+    
 
 
 </body>

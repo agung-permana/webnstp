@@ -144,8 +144,14 @@
         </div>
     </div>
 </li>
-    
 @endif
+
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('kontak') }}">
+        <i class="fas fa-fw fa-user-cog"></i>
+        <span>Kontak Kami</span>
+    </a>
+</li>
 
 {{-- <li class="nav-item">
     <a class="nav-link" href="{{ route('program') }}">

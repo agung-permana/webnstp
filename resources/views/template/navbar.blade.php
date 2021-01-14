@@ -38,12 +38,12 @@
                                         @endforeach
                                       </ul>
                                 </li>
-                                <li class="{{ Request::is('produk-nstp') ? 'active' : ''}}">
+                                {{-- <li class="{{ Request::is('produk-nstp') ? 'active' : ''}}">
                                     <a href="{{ route('produk-nstp') }}">Produk Unggulan</a>
-                                </li>
+                                </li> --}}
                                 <li class="{{ Request::is('berita-nstp') ? 'active' : ''}} {{ Request::is('video') ? 'active' : ''}}"><a href="{{ route('berita-nstp') }}">Berita</a>
                                 </li>
-                                {{-- <li class="{{ Request::is('kompetensi-nstp-bppt') ? 'active' : ''}} {{ Request::is('layanan-teknologi') ? 'active' : ''}} {{ Request::is('produk-teknologi') ? 'active' : ''}}"><a href="#">Database Teknologi</a>
+                                <li class="{{ Request::is('kompetensi-nstp-bppt') ? 'active' : ''}} {{ Request::is('layanan-teknologi') ? 'active' : ''}} {{ Request::is('produk-teknologi') ? 'active' : ''}}"><a href="#">DB Tek.</a>
                                     <ul class="dropdown">
                                         <li>
                                            <a href="{{ route('kompetensi') }}">Kompetensi NSTP-BPPT</a>
@@ -56,6 +56,10 @@
 
                                         </li>
                                     </ul>
-                                </li> --}}
+                                </li>
+                                <li class="{{ Request::is('kontak-kami') ? 'active' : ''}}">
+                                        <a href="{{ url('kontak-kami') }}">Kontak</a>
+                                    </li>
                             </ul>
+
                         </nav>

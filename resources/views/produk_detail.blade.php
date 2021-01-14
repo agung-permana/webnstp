@@ -9,7 +9,7 @@
                   <div class="breadcrumb-text">
                       <div class="bt-option">
                           <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-                          <a href="#">Produk Unggulan</a>
+                          <a href="{{ url('produk-nstp') }}">Produk Unggulan</a>
                           <span>{{ $produk->kategori_produk->nama }}</span>
                       </div>
                   </div>
@@ -17,12 +17,7 @@
           </div>
 
             <div class="row">
-                <div class="col-lg-3 mt-3">
-                    @foreach ($kategori as $item)
-                        <a href="{{ route('produk-detail', $item->id) }}"><p>{{ $item->nama }}</p></a>
-                    @endforeach
-                </div>
-                <div class="col-lg-9 mt-3">
+                <div class="col-md-12 mt-3">
                     <div class="about-text">
                         <div class="at-title">
                         <h3>{{ $produk->kategori_produk->nama }}</h3>

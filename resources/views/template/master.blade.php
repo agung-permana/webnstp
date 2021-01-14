@@ -82,6 +82,8 @@
 
     <!-- Hero Section Begin -->
     @yield('content')
+    @include('sweetalert::alert')
+
     <!-- Logo Carousel End -->
 
     <!-- Contact Section End -->
