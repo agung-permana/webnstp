@@ -250,16 +250,18 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('layanan-teknologi', 'LayananteknoController@layanan')->name('layanan_teknologi');
     Route::get('produk-teknologi', 'ProdukteknoController@produk')->name('produk_teknologi');
 
+    Route::get('kontak', 'KontakController@index')->name('kontak');
+    // Route::get('kontak/create', 'KontakController@create')->name('kontak.create');
+    Route::get('kontak/edit/{id}', 'KontakController@edit')->name('kontak.edit');
+    Route::post('kontak', 'KontakController@update')->name('kontak.update');
+    Route::delete('kontak/{id}', 'KontakController@destroy')->name('kontak.delete');
+    Route::get('kontak/reply/{id}', 'KontakController@reply')->name('kontak.reply');
+
 });
 
 Route::get('kontak-kami', 'KontakController@kontak')->name('kontak-kami');
 Route::post('kontak-kami', 'KontakController@store')->name('kontak.store');
 
-Route::get('kontak', 'KontakController@index')->name('kontak');
-// Route::get('kontak/create', 'KontakController@create')->name('kontak.create');
-Route::get('kontak/edit/{id}', 'KontakController@edit')->name('kontak.edit');
-Route::post('kontak', 'KontakController@update')->name('kontak.update');
-Route::delete('kontak/{id}', 'KontakController@destroy')->name('kontak.delete');
 
 
 Route::get('layanan-inkubasi-teknologi', 'LayananInkubasiController@inkubasi');

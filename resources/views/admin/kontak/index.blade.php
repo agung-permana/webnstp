@@ -7,7 +7,7 @@
 
         </div>
         <div class="card-body">
-            <table id="myTable" class="table table-bordered">
+            <table id="myTable" class="table table-bordered table-hover table-striped table-responsive">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -16,6 +16,7 @@
                         <th>Subyek</th>
                         <th>Nama Instansi/Perusahaan</th>
                         <th>Pesan</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -29,6 +30,12 @@
                             <td>{{ $item->nama_perusahaan }}</td>
                             <td>{{ $item->pesan }}</td>
                             <td>
+                                <a href="{{ route('kontak.reply', $item->id) }}" class="btn btn-warning btn-sm">
+                                    Not Reply
+                                </a>
+                            </td>
+                            <td>
+                                
                                 <form class="d-inline" onsubmit="return confirm('Yakin mau hapus data ini?')" action="{{ route('kontak.delete', $item->id) }}" method="post">
                                     @method('delete')
                                     @csrf

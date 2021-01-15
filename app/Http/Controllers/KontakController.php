@@ -106,4 +106,10 @@ class KontakController extends Controller
         alert()->success('Berhasil','Data Berhasil Dihapus');
         return redirect()->route('kontak');
     }
+
+    public function reply($id)
+    {
+        $data = Kontak::find($id);
+        return view('admin.kontak.reply', compact('data'));
+    }
 }
