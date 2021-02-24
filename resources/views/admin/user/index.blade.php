@@ -12,6 +12,8 @@
                     <tr>
                         <th>No.</th>
                         <th>Nama User</th>
+                        <th>Username</th>
+                        <th>Unit Kerja</th>
                         <th>Email</th>
                         <th>Level</th>
                         <th>Aksi</th>
@@ -22,9 +24,10 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->name }}</td>
+                            <td>{{ $item->username }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->level }}</td>
-                            <td width="180">
+                            <td>
                                 <a href="{{ route('user.edit', $item->id) }}" class="btn btn-sm btn-primary">
                                     <i class="fas fa-edit"></i>
                                 </a>
@@ -40,7 +43,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div style="float: right">{{ $user->links() }}</div>
+
         </div>
     </div>
 @endsection

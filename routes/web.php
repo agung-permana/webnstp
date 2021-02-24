@@ -257,6 +257,13 @@ Route::group(['middleware' => 'auth'], function() {
     Route::delete('kontak/{id}', 'KontakController@destroy')->name('kontak.delete');
     Route::get('kontak/reply/{id}', 'KontakController@reply')->name('kontak.reply');
 
+    Route::get('layanan-lainnya', 'LainnyaController@index')->name('layanan-lainnya');
+    Route::get('layanan-lainnya/create', 'LainnyaController@create')->name('layanan-lainnya.create');
+    Route::post('layanan-lainnya', 'LainnyaController@store')->name('layanan-lainnya.store');
+    Route::get('layanan-lainnya/edit/{id}', 'LainnyaController@edit')->name('layanan-lainnya.edit');
+    Route::put('layanan-lainnya/{id}', 'LainnyaController@update')->name('layanan-lainnya.update');
+    Route::delete('layanan-lainnya/{id}', 'LainnyaController@destroy')->name('layanan-lainnya.delete');
+
 });
 
 Route::get('kontak-kami', 'KontakController@kontak')->name('kontak-kami');

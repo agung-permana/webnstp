@@ -12,4 +12,5 @@ class Unitkerja extends Model
     {
         return $this->belongsTo('App\Kedeputian', 'kedeputian_id', 'id');
     }
+
 }

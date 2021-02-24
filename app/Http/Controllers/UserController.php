@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Unitkerja;
 use App\User;
 
 class UserController extends Controller
@@ -10,8 +11,9 @@ class UserController extends Controller
 
     public function index()
     {
-        $user = User::orderBy('id', 'desc')->paginate(5);
-        return view('admin.user.index', compact('user'));
+        $unit_kerja = Unitkerja::all();
+        $user = User::all();
+        return view('admin.user.index', compact('user', 'unit_kerja'));
     }
 
     public function create()
